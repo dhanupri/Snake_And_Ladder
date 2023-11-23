@@ -10,6 +10,7 @@ public class SnakeAndLadder {
     public static ArrayList<Integer> ladder_end=new ArrayList<Integer>(Arrays.asList(38,14,31,42,85,67,91,99));
     public static ArrayList<Integer> snake_head=new ArrayList<Integer>(Arrays.asList(17,54,62,64,87,92,95,98));
     public static ArrayList<Integer> snake_tail=new ArrayList<Integer>(Arrays.asList(7,19,34,36,60,73,75,79));
+    public  static boolean turn=true;
 
 
     public static int randomgenerate(){
@@ -29,6 +30,7 @@ public class SnakeAndLadder {
         pos+=val;
         if(ladder_start.contains(pos)){
             pos=ladder_end.get(ladder_start.indexOf(pos));
+            
 
 
         }
@@ -42,30 +44,36 @@ public class SnakeAndLadder {
 
 
 
-
-
-
     public static void main(String[] args){
         int player1Position=0;
         
-        while(player1Position!=100) {
+
+
+
+        ArrayList<Integer> Player1Dice=new ArrayList<>();
+
+
+        while(player1Position!=100 ) {
 
 
             int dice_value = randomgenerate();
-            player1Position = checkForoption(player1Position, dice_value);
+
+            
+                player1Position = checkForoption(player1Position, dice_value);
+                Player1Dice.add(player1Position);
+
+           
+
         }
 
+        System.out.println("Number of times dice rolled"+Player1Dice.size());
+        System.out.println("Dice Count"+" "+"Player Position");
 
+        for(int i=0;i<Player1Dice.size();i++){
+            System.out.println(i+1+"  "+Player1Dice.get(i));
 
-
-
-
-
-
-
-
-
-
+        }
+        
 
 
 
