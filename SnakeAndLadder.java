@@ -30,7 +30,7 @@ public class SnakeAndLadder {
         pos+=val;
         if(ladder_start.contains(pos)){
             pos=ladder_end.get(ladder_start.indexOf(pos));
-            
+            turn=!turn;
 
 
         }
@@ -46,23 +46,30 @@ public class SnakeAndLadder {
 
     public static void main(String[] args){
         int player1Position=0;
-        
+        int player2Position=0;
+
 
 
 
         ArrayList<Integer> Player1Dice=new ArrayList<>();
+        ArrayList<Integer> Player2Dice=new ArrayList<>();
 
-
-        while(player1Position!=100 ) {
+        while(player1Position!=100 && player2Position!=100) {
 
 
             int dice_value = randomgenerate();
 
-            
+            if(turn) {
                 player1Position = checkForoption(player1Position, dice_value);
                 Player1Dice.add(player1Position);
 
-           
+            }
+            else{
+                player2Position = checkForoption(player2Position, dice_value);
+                Player2Dice.add(player2Position);
+
+            }
+            turn =!turn;
 
         }
 
@@ -73,7 +80,21 @@ public class SnakeAndLadder {
             System.out.println(i+1+"  "+Player1Dice.get(i));
 
         }
-        
+        System.out.println("Number of times dice rolled"+Player2Dice.size());
+        System.out.println("Dice Count"+" "+"Player Position");
+
+        for(int i=0;i<Player2Dice.size();i++){
+            System.out.println(i+1+"  "+Player2Dice.get(i));
+
+        }
+
+        if(Player1Dice.get(Player1Dice.size()-1)==100){
+            System.out.println("PLAYER1 WON THe GAME!!!!!!!!");
+        }
+        else{
+            System.out.println("PLAYER2 WON THe GAME!!!!!!!!");
+
+        }
 
 
 
