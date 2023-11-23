@@ -47,10 +47,13 @@ public class SnakeAndLadder {
 
     public static void main(String[] args){
         int player1Position=0;
+        
+        while(player1Position!=100) {
 
 
-        int dice_value=randomgenerate();
-        player1Position=checkForoption(player1Position,dice_value);
+            int dice_value = randomgenerate();
+            player1Position = checkForoption(player1Position, dice_value);
+        }
 
 
 
@@ -68,4 +71,3 @@ public class SnakeAndLadder {
 
     }
 }
-
